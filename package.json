@@ -7,7 +7,7 @@
     "build": "npx babel src --out-dir dist --extensions \".js,.ts\" --ignore \"src/**/*.d.ts\""
   },
   "author": "cutymeo / shiinazzz",
-  "license": "UNLICENSED",
+  "private": true,
   "devDependencies": {
     "@babel/cli": "^7.23.0",
     "@babel/core": "^7.23.3",
