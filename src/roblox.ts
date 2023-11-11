@@ -9,4 +9,8 @@ function getNameRepresentationFromInfo(userInfo: noblox.PlayerInfo) {
     return userInfo.username == userInfo.displayName ? userInfo.username : `${userInfo.displayName} (@${userInfo.username})`;
 }
 
-export {getUserInfo, getNameRepresentationFromInfo}
+async function getUserIdFromUsername(username: string): Promise<number> {
+    return await noblox.getIdFromUsername(username);
+}
+
+export {getUserInfo, getNameRepresentationFromInfo, getUserIdFromUsername}
