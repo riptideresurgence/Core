@@ -2,10 +2,9 @@
   "name": "@riptide/core",
   "version": "0.0.1",
   "description": "Core for Backend to do various tasks.",
-  "exports": {
-    "types": "./types",
-    "default": "./dist/index.js"
-  },
+  "main": "./dist/index",
+  "types": "./dist/index",
+  "files": ["dist"],
   "scripts": {
     "build": "tsc --build"
   },
