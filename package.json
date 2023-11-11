@@ -1,5 +1,5 @@
 {
-  "name": "riptide-backend-core",
+  "name": "@riptideresurgence/riptide-backend-core",
   "version": "0.0.1",
   "description": "Core for Backend to do various tasks.",
   "exports": {
