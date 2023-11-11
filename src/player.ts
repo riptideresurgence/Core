@@ -40,4 +40,4 @@ async function getBanList() {
     return await database.getAllBannedDocuments();
 }
 
-export { banPlayer, unbanPlayer, getBanList }
+export { isPlayerBanned, banPlayer, unbanPlayer, getBanList }
