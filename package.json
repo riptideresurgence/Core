@@ -2,21 +2,15 @@
   "name": "riptide-backend-core",
   "version": "0.0.1",
   "description": "Core for Backend to do various tasks.",
-  "main": "index.js",
+  "main": "dist/index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/riptideresurgence/Core.git"
+    "build": "npx babel src --out-dir dist --extensions \".js,.ts\" --ignore \"src/**/*.d.ts\""
   },
   "author": "cutymeo / shiinazzz",
   "license": "UNLICENSED",
-  "bugs": {
-    "url": "https://github.com/riptideresurgence/Core/issues"
-  },
-  "homepage": "https://github.com/riptideresurgence/Core#readme",
   "devDependencies": {
+    "@babel/cli": "^7.23.0",
+    "@babel/core": "^7.23.3",
     "ts-node": "^10.9.1",
     "typescript": "^5.2.2"
   },
