@@ -1,11 +1,8 @@
 "use strict";
-var __importDefault = (this && this.__importDefault) || function (mod) {
-    return (mod && mod.__esModule) ? mod : { "default": mod };
-};
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.getNameRepresentationFromInfo = exports.getUserInfo = void 0;
-const bloxy_1 = __importDefault(require("bloxy"));
-const client = new bloxy_1.default.Client();
+const bloxy = require("bloxy");
+const client = new bloxy.Client();
 async function getUserInfo(user) {
     return await client.getUser(user);
 }

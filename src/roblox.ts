@@ -1,6 +1,5 @@
-import {Client} from "bloxy";
-
-const client = new Client();
+const bloxy = require("bloxy");
+const client = new bloxy.Client();
 
 async function getUserInfo(user: number | string) {
     return await client.getUser(user);
