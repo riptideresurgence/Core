@@ -25,12 +25,12 @@ async function findBannedDocumentFromUserId(userId: number) {
     return document;
 }
 
-async function createBannedDocument(modelValues) {
+async function createBannedDocument(modelValues: any) {
     let document = await new BannedPlayerModel(modelValues).save();
     return document;
 }
 
-async function deleteBannedDocument(searchValues) {
+async function deleteBannedDocument(searchValues: any) {
     await BannedPlayerModel.deleteOne(searchValues);
 }
 
