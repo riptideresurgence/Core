@@ -17,6 +17,7 @@
     "typescript": "^5.2.2"
   },
   "dependencies": {
+    "bloxy": "^5.8.0",
     "mongoose": "^8.0.0"
   }
 }
