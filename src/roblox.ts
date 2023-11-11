@@ -1,16 +1,12 @@
-const bloxy = require("bloxy");
-const client = new bloxy.Client({
-    rest: {
-        requester: require("got-cjs")
-    }
-});
+import noblox from "noblox.js";
 
 async function getUserInfo(user: number | string) {
-    return await client.getUser(user);
+    let userId = typeof user == "string" ? await noblox.getIdFromUsername(user) : user;
+    return await noblox.getPlayerInfo(userId);
 }
 
-function getNameRepresentationFromInfo(userInfo: any) {
-    return userInfo.name == userInfo.displayName ? userInfo.name : `${userInfo.displayName} (@${userInfo.name})`;
+function getNameRepresentationFromInfo(userInfo: noblox.PlayerInfo) {
+    return userInfo.username == userInfo.displayName ? userInfo.username : `${userInfo.displayName} (@${userInfo.username})`;
 }
 
 export {getUserInfo, getNameRepresentationFromInfo}

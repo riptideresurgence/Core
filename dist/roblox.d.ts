@@ -1,3 +1,4 @@
-declare function getUserInfo(user: number | string): Promise<any>;
-declare function getNameRepresentationFromInfo(userInfo: any): any;
+import noblox from "noblox.js";
+declare function getUserInfo(user: number | string): Promise<noblox.PlayerInfo>;
+declare function getNameRepresentationFromInfo(userInfo: noblox.PlayerInfo): string;
 export { getUserInfo, getNameRepresentationFromInfo };

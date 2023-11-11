@@ -1,17 +1,16 @@
 "use strict";
+var __importDefault = (this && this.__importDefault) || function (mod) {
+    return (mod && mod.__esModule) ? mod : { "default": mod };
+};
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.getNameRepresentationFromInfo = exports.getUserInfo = void 0;
-const bloxy = require("bloxy");
-const client = new bloxy.Client({
-    rest: {
-        requester: require("got-cjs")
-    }
-});
+const noblox_js_1 = __importDefault(require("noblox.js"));
 async function getUserInfo(user) {
-    return await client.getUser(user);
+    let userId = typeof user == "string" ? await noblox_js_1.default.getIdFromUsername(user) : user;
+    return await noblox_js_1.default.getPlayerInfo(userId);
 }
 exports.getUserInfo = getUserInfo;
 function getNameRepresentationFromInfo(userInfo) {
-    return userInfo.name == userInfo.displayName ? userInfo.name : `${userInfo.displayName} (@${userInfo.name})`;
+    return userInfo.username == userInfo.displayName ? userInfo.username : `${userInfo.displayName} (@${userInfo.username})`;
 }
 exports.getNameRepresentationFromInfo = getNameRepresentationFromInfo;
