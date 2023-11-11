@@ -3,8 +3,7 @@
   "version": "0.0.1",
   "description": "Core for Backend to do various tasks.",
   "exports": {
-    "types": "./dist/index.d.ts",
-    "development": "./src/index.ts",
+    "types": "./types",
     "default": "./dist/index.js"
   },
   "scripts": {
