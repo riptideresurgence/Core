@@ -1,5 +1,9 @@
 const bloxy = require("bloxy");
-const client = new bloxy.Client();
+const client = new bloxy.Client({
+    rest: {
+        requester: require("got-cjs")
+    }
+});
 
 async function getUserInfo(user: number | string) {
     return await client.getUser(user);

@@ -18,7 +18,7 @@
   },
   "dependencies": {
     "bloxy": "^5.8.0",
-    "got": "^13.0.0",
+    "got-cjs": "^12.5.4",
     "lodash": "^4.17.21",
     "mongoose": "^8.0.0",
     "signalr-client": "^0.0.20",
