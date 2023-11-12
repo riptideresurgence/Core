@@ -13,4 +13,19 @@ async function getUserIdFromUsername(username: string): Promise<number> {
     return await noblox.getIdFromUsername(username);
 }
 
-export {getUserInfo, getNameRepresentationFromInfo, getUserIdFromUsername}
+async function setOpenCloudKey(key: string) {
+    await noblox.setAPIKey(key);
+}
+
+async function getEntryFromDataStore(universeId: number, datastoreName: string, entryKey: string, scope?: string) {
+    return await noblox.getDatastoreEntry(universeId, datastoreName, entryKey, scope)
+}
+
+export {
+    getUserInfo,
+    getNameRepresentationFromInfo,
+    getUserIdFromUsername,
+
+    setOpenCloudKey,
+    getEntryFromDataStore
+}
