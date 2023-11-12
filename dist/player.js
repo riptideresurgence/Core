@@ -40,9 +40,7 @@ exports.isPlayerBanned = isPlayerBanned;
 async function banPlayer(banMethod, userId, durationInMinutes, moderator, banReason) {
     let document = await database.findBannedDocumentFromUserId(userId);
     if (!document) {
-        document = await database.createBannedDocument({
-            userId: userId
-        });
+        document = await database.createBannedDocument(userId);
     }
     const currentDate = new Date();
     const currentTime = Math.floor(currentDate.getTime() / 1000);

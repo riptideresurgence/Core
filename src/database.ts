@@ -77,11 +77,11 @@ async function findBannedDocumentFromUserId(userId: number) {
 }
 
 async function createBannedDocument(
-    userId: number | undefined,
-    bannedTime: number | undefined,
-    bannedUntil: number | undefined,
-    reason: string | undefined,
-    moderator: string | undefined
+    userId?: number,
+    bannedTime?: number,
+    bannedUntil?: number,
+    reason?: string,
+    moderator?: string
 ) {
     let document = await new bannedPlayerModel({
         userId: userId,

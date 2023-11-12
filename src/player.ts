@@ -15,9 +15,7 @@ async function isPlayerBanned(UserId: number): Promise<boolean> {
 async function banPlayer(banMethod: "Discord" | "API", userId: number, durationInMinutes: number, moderator: string, banReason: string) {
     let document = await database.findBannedDocumentFromUserId(userId);
     if (!document) {
-        document = await database.createBannedDocument({
-            userId: userId
-        });
+        document = await database.createBannedDocument(userId);
     }
     const currentDate = new Date();
     const currentTime = Math.floor(currentDate.getTime() / 1000);
