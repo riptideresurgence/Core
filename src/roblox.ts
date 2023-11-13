@@ -13,6 +13,10 @@ async function getUserIdFromUsername(username: string): Promise<number> {
     return await noblox.getIdFromUsername(username);
 }
 
+async function getPlayerThumbnailUsingUserId(userId: number, size: noblox.BodySizes | noblox.BustSizes | noblox.HeadshotSizes, isCircular?: boolean | undefined, cropType?: "body" | "bust" | "headshot" | undefined) {
+    return await noblox.getPlayerThumbnail(userId, size, "png", isCircular, cropType);
+}
+
 async function setOpenCloudKey(key: string) {
     await noblox.setAPIKey(key);
 }
@@ -25,6 +29,7 @@ export {
     getUserInfo,
     getNameRepresentationFromInfo,
     getUserIdFromUsername,
+    getPlayerThumbnailUsingUserId,
 
     setOpenCloudKey,
     getEntryFromDataStore

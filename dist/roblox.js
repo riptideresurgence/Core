@@ -3,7 +3,7 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.getEntryFromDataStore = exports.setOpenCloudKey = exports.getUserIdFromUsername = exports.getNameRepresentationFromInfo = exports.getUserInfo = void 0;
+exports.getEntryFromDataStore = exports.setOpenCloudKey = exports.getPlayerThumbnailUsingUserId = exports.getUserIdFromUsername = exports.getNameRepresentationFromInfo = exports.getUserInfo = void 0;
 const noblox_js_1 = __importDefault(require("noblox.js"));
 async function getUserInfo(user) {
     let userId = typeof user == "string" ? await noblox_js_1.default.getIdFromUsername(user) : user;
@@ -18,6 +18,10 @@ async function getUserIdFromUsername(username) {
     return await noblox_js_1.default.getIdFromUsername(username);
 }
 exports.getUserIdFromUsername = getUserIdFromUsername;
+async function getPlayerThumbnailUsingUserId(userId, size, isCircular, cropType) {
+    return await noblox_js_1.default.getPlayerThumbnail(userId, size, "png", isCircular, cropType);
+}
+exports.getPlayerThumbnailUsingUserId = getPlayerThumbnailUsingUserId;
 async function setOpenCloudKey(key) {
     await noblox_js_1.default.setAPIKey(key);
 }
