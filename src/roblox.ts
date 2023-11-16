@@ -41,7 +41,7 @@ async function getBatchUserInfo(userIds: number[]): Promise<BatchPlayerInfo[]> {
     })
 }
 
-function getNameRepresentationFromInfo(userInfo: noblox.PlayerInfo) {
+function getNameRepresentationFromInfo(userInfo: noblox.PlayerInfo | BatchPlayerInfo) {
     return userInfo.username == userInfo.displayName ? userInfo.username : `${userInfo.displayName} (@${userInfo.username})`;
 }
 
