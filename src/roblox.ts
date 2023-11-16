@@ -1,8 +1,38 @@
 import noblox from "noblox.js";
+import axios from "axios";
+
+type BatchPlayerInfo = {
+    username: string;
+    displayName: string;
+    userId: number
+}
 
 async function getUserInfo(user: number | string) {
     let userId = typeof user == "string" ? await noblox.getIdFromUsername(user) : user;
     return await noblox.getPlayerInfo(userId);
+}
+
+async function getBatchUserInfo(userIds: number[]): Promise<BatchPlayerInfo[]> {
+    return new Promise((resolve, reject) => {
+        axios.post("https://users.roblox.com/v1/users", {
+            "userIds": userIds
+        })
+            .then((response) => {
+                let playerInfos: BatchPlayerInfo[] = [];
+                response.data.data.forEach((userInfo: any) => {
+                    playerInfos.push({
+                        username: userInfo.name,
+                        displayName: userInfo.displayName,
+                        userId: userInfo.id
+                    })
+                });
+
+                resolve(playerInfos);
+            })
+            .catch((err) => {
+                reject(`Failed to request batch user info: ${err}`);
+            })
+    })
 }
 
 function getNameRepresentationFromInfo(userInfo: noblox.PlayerInfo) {
@@ -26,7 +56,10 @@ async function getEntryFromDataStore(universeId: number, datastoreName: string, 
 }
 
 export {
+    BatchPlayerInfo,
+
     getUserInfo,
+    getBatchUserInfo,
     getNameRepresentationFromInfo,
     getUserIdFromUsername,
     getPlayerThumbnailUsingUserId,
