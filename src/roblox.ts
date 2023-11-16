@@ -75,7 +75,7 @@ async function getEntriesFromOrderedDataStore(universeId: number, orderedDataSto
         })
             .then((response) => {
                 let entries: OrderedDataStoreEntry[] = [];
-                response.data.data.forEach((entry: any) => {
+                response.data.entries.forEach((entry: any) => {
                     entries.push({
                         id: entry.id,
                         value: entry.value
